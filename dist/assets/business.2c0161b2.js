@@ -1,1 +1,0 @@
-var a=(u=>(u.admin="admin",u.manager="manager",u.user="user",u))(a||{}),r=(u=>(u["pwd-login"]="\u8D26\u5BC6\u767B\u5F55",u["code-login"]="\u624B\u673A\u9A8C\u8BC1\u7801\u767B\u5F55",u.register="\u6CE8\u518C",u["reset-pwd"]="\u91CD\u7F6E\u5BC6\u7801",u["bind-wechat"]="\u5FAE\u4FE1\u7ED1\u5B9A",u))(r||{});export{a as E,r as a};
