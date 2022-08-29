@@ -10,15 +10,15 @@ const apis: MockMethod[] = [
 
       const routeHomeName: AuthRoute.RouteKey = "report_reports";
 
-      // const role = UserModel.find((item) => item.userId === userId)?.userRole || "user";
+      // const role = userModel.find((item) => item.userId === userId)?.role || "user";
 
-      // const filterRoutes = routeModel[role];
+      const filterRoutes = routeModel[admin];
 
       return {
         code: 200,
         message: "ok",
         data: {
-          // routes: filterRoutes,
+          routes: routeModel,
           home: routeHomeName,
         },
       };
