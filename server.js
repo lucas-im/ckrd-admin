@@ -3,7 +3,7 @@ const serveStatic = require('serve-static')
 const path = require('path')
 const cors = require('cors')
 const app = express()
-app.use(cors)
+app.use(cors())
 //here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
