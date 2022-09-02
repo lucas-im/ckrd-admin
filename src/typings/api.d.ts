@@ -31,7 +31,7 @@ declare namespace ApiDemo {
 
 interface Transaction {
   userId: string;
-  type: 'buy' | 'sell';
+  type: "buy" | "sell";
   network: string;
   exchange_rate: number;
   usd_amount: number;
@@ -72,7 +72,7 @@ declare namespace ApiManagement {
   interface BuyAndSell {
     id: string;
     userId: string;
-    type: 'buy' | 'sell';
+    type: "buy" | "sell";
     network: string;
     exchange_rate: number;
     usd_amount: number;
@@ -112,8 +112,12 @@ declare namespace ApiManagement {
 
   interface GetStatistics {
     total_users: number;
+    total_users_timestamps: number[];
     total_premium_users: number;
+    total_premium_users_timestamps: number[];
     total_former_premium_users: number;
+    total_former_premium_users_timestamps: number[];
     total_never_premium_users: number;
+    total_never_premium_users_timestamps: number[];
   }
 }

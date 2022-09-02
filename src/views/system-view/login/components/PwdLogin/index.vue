@@ -1,15 +1,15 @@
 <template>
   <n-form ref="formRef" :model="model" :rules="rules" size="large" :show-label="false">
     <n-form-item path="userName">
-      <n-input v-model:value="model.userName" placeholder="请输入用户名" />
+      <n-input v-model:value="model.userName" placeholder="UserName" />
     </n-form-item>
     <n-form-item path="password">
-      <n-input v-model:value="model.password" type="password" show-password-on="click" placeholder="请输入密码" />
+      <n-input v-model:value="model.password" type="password" show-password-on="click" placeholder="Password" />
     </n-form-item>
     <n-space :vertical="true" :size="24">
       <div class="flex-y-center justify-between">
-        <n-checkbox v-model:checked="rememberMe">记住我</n-checkbox>
-        <n-button :text="true" @click="toLoginModule('reset-pwd')">忘记密码？</n-button>
+        <n-checkbox v-model:checked="rememberMe">Remember</n-checkbox>
+        <n-button :text="true" @click="toLoginModule('reset-pwd')">Forget Password?</n-button>
       </div>
       <n-button
         type="primary"
@@ -19,11 +19,11 @@
         :loading="auth.loginLoading"
         @click="handleSubmit"
       >
-        确定
+        Submit
       </n-button>
       <div class="flex-y-center justify-between">
         <n-button class="flex-1" :block="true" @click="toLoginModule('code-login')">
-          {{ EnumLoginModule['code-login'] }}
+          {{ EnumLoginModule["code-login"] }}
         </n-button>
         <div class="w-12px"></div>
         <n-button class="flex-1" :block="true" @click="toLoginModule('register')">
@@ -36,13 +36,13 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import type { FormInst, FormRules } from 'naive-ui';
-import { EnumLoginModule } from '@/enum';
-import { useAuthStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { formRules } from '@/utils';
-import { OtherAccount } from './components';
+import { reactive, ref } from "vue";
+import type { FormInst, FormRules } from "naive-ui";
+import { EnumLoginModule } from "@/enum";
+import { useAuthStore } from "@/store";
+import { useRouterPush } from "@/composables";
+import { formRules } from "@/utils";
+import { OtherAccount } from "./components";
 
 const auth = useAuthStore();
 const { login } = useAuthStore();
@@ -50,11 +50,11 @@ const { toLoginModule } = useRouterPush();
 
 const formRef = ref<(HTMLElement & FormInst) | null>(null);
 const model = reactive({
-  userName: 'Soybean',
-  password: 'soybean123'
+  userName: "Soybean",
+  password: "soybean123",
 });
 const rules: FormRules = {
-  password: formRules.pwd
+  password: formRules.pwd,
 };
 const rememberMe = ref(false);
 
@@ -62,7 +62,7 @@ function handleSubmit(e: MouseEvent) {
   if (!formRef.value) return;
   e.preventDefault();
 
-  formRef.value.validate(errors => {
+  formRef.value.validate((errors) => {
     if (!errors) {
       const { userName, password } = model;
       login(userName, password);
